@@ -31,17 +31,28 @@ verifier:
 
 platforms:
   - name: rhel75
+    transport:
       username: ec2-user
       ssh_key: ~/.ssh/id_rsa
     driver:
       image_id: ami-28e07e50
-      #      image_search:
-      #  owner-id: "309956199498"
-      #  name: "RHEL-7.5_HVM_GA-20180322-x86_64-1-Hourly2-GP2"
+    driver_config:
+      user_data: ./kitchen_user_data
+  - name: centos-6
+    transport:
+      username: centos
+      ssh_key: ~/.ssh/bagio-training.pem
     driver_config:
       user_data: ./kitchen_user_data
 
-
+suites:
+  - name: default
+    run_list:
+      - recipe[cookbook::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
   - name: centos-6
     transport:
       username: centos
