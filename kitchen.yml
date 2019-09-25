@@ -38,6 +38,17 @@ platforms:
       image_id: ami-28e07e50
     driver_config:
       user_data: ./kitchen_user_data
+
+  - name: oracle76
+    transport:
+      username: ec2-user
+      ssh_key: ~/.ssh/id_rsa
+    driver:
+      image_id: ami-064a66c638569c37c
+      #owner-id: "131827586825"
+    driver_config:
+      user_data: ./kitchen_user_data
+
   - name: centos-6
     transport:
       username: centos
