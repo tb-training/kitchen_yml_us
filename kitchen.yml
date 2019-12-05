@@ -8,14 +8,13 @@ driver:
   associate_public_ip: true
   instance_type: t2.micro
   tags:
-    # Replace YOURNAME and YOURCOMPANY here
-    Name: "<tbagio> Training Node"
-    X-Contact: "Tio Bagio"
+    # Replace YOURNAME here
+    Name: "<yourname>-node"
+    X-Contact: "tbagio"
     X-Application: "apac"
     X-Dept: "sales"
     X-Customer: "apjcorp"
-    X-Project: "training"
-    X-Termination-Date: "2019-09-20T12:04:30Z"
+    X-Project: "demo/training"
     X-TTL: 100
 
 provisioner:
@@ -72,7 +71,21 @@ suites:
       user_data: ./kitchen_user_data
 
 suites:
-  - name: default
+  - name: ws1
+    run_list:
+      - recipe[cookbook::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+  - name: ws2
+    run_list:
+      - recipe[cookbook::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:
+  - name: ws3
     run_list:
       - recipe[cookbook::default]
     verifier:
