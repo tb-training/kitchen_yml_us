@@ -56,21 +56,6 @@ platforms:
       user_data: ./kitchen_user_data
 
 suites:
-  - name: default
-    run_list:
-      - recipe[cookbook::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
-    attributes:
-  - name: centos-6
-    transport:
-      username: centos
-      ssh_key: ~/.ssh/id_rsa
-    driver_config:
-      user_data: ./kitchen_user_data
-
-suites:
   - name: ws1
     run_list:
       - recipe[cookbook::default]
