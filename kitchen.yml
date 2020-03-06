@@ -40,7 +40,7 @@ platforms:
 
 
 suites:
-  - name: ws1
+  - name: default
     run_list:
       - recipe[cookbook::default]
     verifier:
