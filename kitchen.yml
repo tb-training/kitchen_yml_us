@@ -3,13 +3,13 @@ driver:
   name: ec2
   aws_ssh_key_id: chef_demo_2x
   region: us-west-2
-  security_group_ids: sg-0beea4b5390b41c99
-  subnet_id: subnet-099c36693f5cc90d8
+  security_group_ids: sg-0d29bca2254af46b4
+  subnet_id: subnet-0b124de62cb862a00
   associate_public_ip: true
   instance_type: t2.micro
   tags:
     # Replace YOURNAME here
-    Name: "tio-node"
+    Name: "YOURNAME-node"
     X-Contact: "tbagio"
     X-Application: "apac"
     X-Dept: "sales"
